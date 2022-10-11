@@ -1,0 +1,50 @@
+<div id="addpost-component" class="container" >
+    <div id="addpost-div">
+
+        <!-- image for form (how it will look) -->
+        <div>
+            <div class="container d-flex justify-content-center post-image-div">
+                <img class="post-content" *ngIf="postType.value=='image'" alt="upload image" [src]="previewContent">
+                <video class="post-content" *ngIf="postType.value=='video'" src="{{previewContent}}"  controls>
+                </video>
+            </div>
+        </div>
+
+        <!-- form fields -->
+        <form (ngSubmit)="postImage()" enctype="multipart/form-data" >
+            <div class="form-field-div ">
+                <label class="form-field-label" for="post_type">Type of Post</label>
+                <select class="form-select" (change)="setPostType($event)" [(ngModel)]="newPost.post_type" #postType="ngModel" name="post_type" aria-label="Default select example">
+                    <option value="image" selected>Image</option>
+                    <option value="video" >Video</option>
+                    <option value="hyperlink">Hyperlink</option>
+                </select>
+            </div>
+
+            <!-- conditional render upload -->
+            <div class="form-field-div">
+                <div *ngIf="postType.value == 'image'">
+                    <label class="form-field-label" for="image">Click to Upload</label>
+                    <input (change)="onContentUpload($event)" type="file" name="image" class="form-control">
+                </div>
+                <div *ngIf="postType.value == 'video'">
+                    <label class="form-field-label" >Click to Upload</label>
+                    <input (change)="onContentUpload($event)" type="file" name="video" class="form-control">
+                </div>
+                <div *ngIf="postType.value == 'hyperlink'">
+                    <label class="form-field-label" >Enter the Hyperlink</label>
+                    <input (change)="setHyperlink($event)" name="hyperlink" class="form-control">
+                </div>
+                
+            </div>
+            <div class="form-field-div">
+                <label class="form-field-label" for="caption">Caption</label>
+                <textarea  [(ngModel)]="newPost.caption" name="caption" class="form-control" placeholder="Enter caption" id="floatingTextarea2" style="height: 100px"></textarea>
+            </div>
+            <div class="container d-flex justify-content-center form-field-div">
+                <button type="submit" class="btn btn-danger" [disabled]="disableBtn">Add Post</button>
+            </div>
+        </form>
+
+    </div>
+</div>

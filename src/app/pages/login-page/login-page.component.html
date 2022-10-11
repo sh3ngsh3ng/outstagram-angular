@@ -1,0 +1,30 @@
+<div id="login-page" class="container">
+    <div id="login-form-div" class="container p-5">
+        <!-- logo for form -->
+        <div class="form-logo-div" class="container d-flex justify-content-center">
+            <img class="form-logo" src="../../../assets/images/camera.png" >
+        </div>
+
+        <!-- form fields -->
+        <div id="login-form-field-div" class="container d-flex justify-content-center">
+            <!-- {{user | json}} for form double binding check -->
+            <form (ngSubmit)="userLogin()" #loginForm="ngForm">
+                <div class="form-field-div">
+                    <label class="form-field-label" for="username">Username </label>
+                    <input id="username" [(ngModel)]="user.username" name="username" class="form-control">
+                </div>
+                <div class="form-field-div">
+                    <label class="form-field-label" for="password">Password </label>
+                    <input id="password" [(ngModel)]="user.password" name="password" class="form-control ng-untouched ng-pristine ng-valid" type="password">
+                </div>
+                <div class="container d-flex justify-content-center form-field-div">
+                    <button type="submit" class="btn btn-success">Login</button>
+                </div>
+                <div class="container d-flex justify-content-center mt-2">
+                    <a href="/signup">Create an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

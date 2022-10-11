@@ -1,0 +1,17 @@
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.form-field-div {
+    margin-top: 20px!important;
+}
+
+.form-field-label {
+    margin-bottom: 5px!important;
+}
+
+/* for login and sign up form */
+.form-logo {
+    height: 80px;
+}

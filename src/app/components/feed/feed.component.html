@@ -1,0 +1,14 @@
+<div id="feed-div" class="container">
+    <div *ngFor="let post of feed | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
+        <app-show-post [currentPost]="post"></app-show-post>
+    </div>
+</div>
+<div id="pagination-div">
+    <pagination-controls (pageChange)="page=$event"></pagination-controls>
+    <select (change)="changeItemsPerPage($event)">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=5 selected>5</option>
+    </select>
+</div>
+

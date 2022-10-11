@@ -1,0 +1,35 @@
+#feed-div {
+    padding: 20px;
+}
+
+
+#pagination-div {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 30px;
+    margin-bottom:20px;
+}
+
+ul.ngx-pagination {
+    padding: 0!important;
+}
+
+@media only screen and (min-width: 425px) {
+   #feed-div {
+       width: 90vw;
+   }
+   
+} 
+
+@media only screen and (min-width: 768px) {
+    #feed-div {
+        width: 60vw;
+    }
+ } 
+
+ @media only screen and (min-width: 1024px) {
+    #feed-div {
+        width: 40vw;
+    }
+ } 

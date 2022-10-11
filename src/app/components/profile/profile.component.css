@@ -1,0 +1,22 @@
+#profile-div {
+    padding: 20px;
+}
+
+@media only screen and (min-width: 425px) {
+    #profile-div {
+        width: 90vw;
+    }
+    
+ } 
+ 
+ @media only screen and (min-width: 768px) {
+     #profile-div {
+         width: 60vw;
+     }
+  } 
+ 
+  @media only screen and (min-width: 1024px) {
+     #profile-div {
+         width: 40vw;
+     }
+  } 

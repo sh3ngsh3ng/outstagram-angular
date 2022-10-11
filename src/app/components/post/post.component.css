@@ -1,0 +1,75 @@
+.post-div {
+    background-color: rgba(108, 124, 131, 0.322);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.post-image-div {
+    padding-top: 10px;
+}
+
+.post-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.editable-btn-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editable-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.editable-btn-icon {
+    height: 20px
+}
+
+
+.edit-mode-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.edit-mode-btn {
+    margin-right: 10px;
+}
+
+
+.caption-div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items:flex-start;
+}
+
+.caption-textarea {
+    width: 100%;
+}
+
+.like-post-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.like-icon {
+    margin-top: 5px;
+    margin-right: 10px;
+    height:20px;
+}
+
+
+@media only screen and (min-width: 768px) {
+   .post-div {
+       margin-top: 20px;
+       padding: 15px;
+   }
+} 

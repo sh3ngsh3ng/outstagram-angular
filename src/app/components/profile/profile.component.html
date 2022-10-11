@@ -1,0 +1,7 @@
+<div id="profile-div" class="container">
+    <div *ngFor="let post of userPosts">
+        <!-- Both lines below does the same thing -->
+        <!-- <app-post [post]="post" [routerLink] = "[{outlets: {user: 'post/' + post.post_id}}]"></app-post> -->
+        <app-edit-post [currentPost]="post" ></app-edit-post>
+    </div>
+</div>

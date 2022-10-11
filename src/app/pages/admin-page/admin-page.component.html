@@ -1,0 +1,47 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <button *ngIf="activeTab == 'posts'" style="background-color:grey" class="nav-link active" aria-current="page" (click)="setActiveTab($event)" value="posts">Posts</button>
+      <button *ngIf="activeTab !== 'posts'" class="nav-link" aria-current="page" (click)="setActiveTab($event)" value="posts">Posts</button>
+    </li>
+    <li class="nav-item">
+        <button *ngIf="activeTab == 'users'" style="background-color:grey" class="nav-link active" aria-current="page" (click)="setActiveTab($event)" value="users">Users</button>
+        <button *ngIf="activeTab !== 'users'" class="nav-link" aria-current="page" (click)="setActiveTab($event)" value="users">Users</button>
+    </li>
+</ul>
+
+
+<div *ngIf="activeTab=='posts'" class="container">
+    <div *ngFor="let post of posts">
+        <app-post 
+        [post]="post" 
+        [editable]="true"
+        (childEvent)="postToBeUpdated=$event" 
+        (confirmUpdateParent)="onUpdate(post.post_id)"
+        (confirmDeleteParent) = "onDelete(post.post_id)"
+        ></app-post>
+    </div>
+</div>
+
+
+<div *ngIf="activeTab=='users'" class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <button class="btn btn-warning">Update</button>
+                    <button class="btn btn-danger" (click)="deleteUser(user.user_id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

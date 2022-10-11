@@ -1,0 +1,58 @@
+
+<div class="post-div" #thePostToObserve>
+    <div class="post-div-content">
+
+        <div *ngIf="editable" class="editable-btn-div">
+            <button class="editable-btn" (click)="toggleEditMode()">
+                <img class="editable-btn-icon" src="../../../assets/images/edit.png">
+            </button>
+            <span *ngIf="editMode" style="font-style:italic;">Editing this post...</span>
+            <button class="editable-btn" (click)="deleteConfirmation()">
+                <img class="editable-btn-icon" src="../../../assets/images/delete.png">
+            </button>
+        </div>
+
+        <!-- post content -> image -->
+        <div class="post-image-div">
+            <div *ngIf="imageLoaded" style="height: 200px">
+                <img *ngIf="post.post_type=='image'" class="post-image" src="{{'data:image/jpg;base64,' + imagePath}}" alt="uploaded image">
+                <video *ngIf="post.post_type=='video'" class="post-image" controls><source type="video/mp4" src="{{'data:video/mp4;base64,' + imagePath}}"></video>
+            </div>
+            <div *ngIf="!imageLoaded" style="height: 200px">
+                <div  class="spinner-grow" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- like post div -->
+        <div class="like-post-div">
+            <img *ngIf="!postLiked" (click)="likePost()" class="like-icon" src="../../../assets/images/unlike.png">
+            <img *ngIf="postLiked" class="like-icon" src="../../../assets/images/liked.png">
+        </div>
+        
+
+        <!-- caption div -->
+        <div class="caption-div">
+            <p *ngIf="!editMode" style="font-style:italic; margin-right: 10px;"> @ {{post.account?.account_id}}: </p>
+            <textarea class="caption-textarea" *ngIf="editable && editMode" [value]="post.caption" (change)="sendUpdatedPost($event)"></textarea>
+            <span *ngIf="!editable || !editMode">{{post.caption}}</span><br>
+        </div>
+        
+
+
+        <!-- edit mode -->
+        <div class="edit-mode-div" *ngIf="editMode">
+            <button class="edit-mode-btn btn btn-danger" (click)="toggleEditMode()">Cancel</button>
+            <button class="edit-mode-btn btn btn-warning" (click)="confirmUpdate()">Update</button>
+        </div>
+
+
+        <span style="font-style:italic">posted on: {{post.createdDate}}</span>
+        
+    </div>
+</div>
+
+
+
+
